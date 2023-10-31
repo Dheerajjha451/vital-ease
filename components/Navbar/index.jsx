@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 function Navbar(props) {
@@ -9,21 +10,21 @@ function Navbar(props) {
   };
 
   return (
-    <nav className='flex items-center justify-between py-4 px-8 w-screen bg-white shadow-lg'>
+    <nav  className='fixed top-0 flex items-center justify-between py-4 px-8 w-screen bg-white shadow-lg'>
       <div className='flex items-center'>
-        <h1 className='font-semibold text-xl'>Vital-Ease</h1>
+        <Link href="/"><h1 className='font-semibold text-xl'>Vital-Ease</h1></Link>
       </div>
 
       <div className='flex items-center space-x-6'>
-        <a href='#' className='text-gray-800 hover:text-blue-500'>
+        {/* <Link href='/' className='text-gray-800 hover:text-blue-500'>
           Home
-        </a>
+        </Link> */}
         <a href='#' className='text-gray-800 hover:text-blue-500'>
           About
         </a>
-        <a href='#' className='text-gray-800 hover:text-blue-500'>
+        <Link href='/users/chatbot' className='text-gray-800 hover:text-blue-500'>
           Chatbot
-        </a>
+        </Link>
        
         <div className='flex items-center space-x-4'>
           {isLoggedIn ? (
@@ -31,9 +32,14 @@ function Navbar(props) {
               User Profile
             </a>
           ) : (
-            <a href='#' onClick={handleUserProfileClick} className='text-gray-800 hover:text-blue-500'>
+            <div className="flex items-center space-x-4">
+            <Link href='/users/login' className='text-gray-800 hover:text-blue-500'>
               Login
-            </a>
+            </Link>
+            <Link href='/users/signup' className='text-gray-800 hover:text-blue-500'>
+              SignUp
+            </Link>
+            </div>
           )}
         
         </div>

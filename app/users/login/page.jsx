@@ -1,7 +1,7 @@
 'use client';
 import InputComponent from '@/components/Navbar/FormElements/InputComponent';
 import SelectComponent from '@/components/Navbar/FormElements/SelectedComponent';
-import { registrationFormControls } from '@/utils';
+import { loginFormControls} from '@/utils';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -14,27 +14,21 @@ const initialFormData = {
     role: 'customer'
 }
 
-const Signup = () => {
+const Login = () => {
     // const [formData, setFormData] = useState(initialFormData)
     return (
         <div className="max-h-screen h-screen flex flex-col justify-center items-center">
             <div className="mb-5">
                 <h6 className="text-lg font-semibold">
-                    {isRegistered ? "Registration Successful!" : "Signup for an Account"}
-
+                    Login to your Account
+ 
                 </h6>
             </div>
             <div className="flex justify-center">
                 <div className="w-96 p-8 border border-gray-300">
 
-                    {isRegistered ? (<Link href="/users/login"><button
-                        className="w-full bg-green-500 text-white p-2 rounded"
-                    >
-                        Login
-                    </button></Link>
-                    ) :
-                        (<div className='w-full relative space-y-8'>
-                            {registrationFormControls.map((controlItem) =>
+                    <div className='w-full relative space-y-8'>
+                            {loginFormControls.map((controlItem) =>
                                 controlItem.componentType === "input" ? (
                                     <InputComponent
                                         type={controlItem.type}
@@ -68,12 +62,10 @@ const Signup = () => {
                                 SignUp
                             </button>
                         </div>
-                        )
-                    }
                 </div>
             </div>
         </div>
     );
 };
 
-export default Signup;
+export default Login;
