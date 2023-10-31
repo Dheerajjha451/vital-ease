@@ -3,19 +3,20 @@ import InputComponent from '@/components/Navbar/FormElements/InputComponent';
 import SelectComponent from '@/components/Navbar/FormElements/SelectedComponent';
 import { loginFormControls} from '@/utils';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 const isRegistered = false;
 
 const initialFormData = {
-    name: '',
+    
     email: '',
     password: '',
-    role: 'customer'
+    role: 'guardian'
 }
 
 const Login = () => {
-    // const [formData, setFormData] = useState(initialFormData)
+    const router=useRouter();
     return (
         <div className="max-h-screen h-screen flex flex-col justify-center items-center">
             <div className="mb-5">
@@ -34,33 +35,30 @@ const Login = () => {
                                         type={controlItem.type}
                                         placeholder={controlItem.placeholder}
                                         label={controlItem.label}
-                                        // onChange={(event) => {
-                                        //     setFormData({
-                                        //         ...formData,
-                                        //         [controlItem.id]: event.target.value,
-                                        //     });
-                                        // }}
-                                        // value={formData[controlItem.id]}
+                                        
                                     />
                                 ) : controlItem.componentType === "select" ? (
                                     <SelectComponent
                                         options={controlItem.options}
                                         label={controlItem.label}
-                                        // onChange={(event) => {
-                                        //     setFormData({
-                                        //         ...formData,
-                                        //         [controlItem.id]: event.target.value,
-                                        //     });
-                                        // }}
-                                        // value={formData[controlItem.id]}
+                                        
                                     />
                                 ) : null
                             )}
                             <button
                                 className="w-full bg-green-500 text-white p-2 rounded"
                             >
+                                Login
+                            </button>
+                            <div className='flex flex-col gap-2'>
+                                <p>New to Vital-Ease?</p>
+                                <button
+                                className="w-full bg-green-500 text-white p-2 rounded"
+                                    onClick={()=>router.push('/users/signup')}
+                            >
                                 SignUp
                             </button>
+                            </div>
                         </div>
                 </div>
             </div>

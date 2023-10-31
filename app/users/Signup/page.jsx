@@ -48,18 +48,6 @@ const Signup = () => {
                                         // }}
                                         // value={formData[controlItem.id]}
                                     />
-                                ) : controlItem.componentType === "select" ? (
-                                    <SelectComponent
-                                        options={controlItem.options}
-                                        label={controlItem.label}
-                                        // onChange={(event) => {
-                                        //     setFormData({
-                                        //         ...formData,
-                                        //         [controlItem.id]: event.target.value,
-                                        //     });
-                                        // }}
-                                        // value={formData[controlItem.id]}
-                                    />
                                 ) : null
                             )}
                             <button
