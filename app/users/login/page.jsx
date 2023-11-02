@@ -4,6 +4,7 @@ import SelectComponent from '@/components/Navbar/FormElements/SelectedComponent'
 import { GlobalContext } from '@/context';
 import { login } from '@/services/login';
 import { loginFormControls} from '@/utils';
+import Cookies from 'js-cookie';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { isValidElement, useContext, useEffect, useState } from 'react';
@@ -18,7 +19,7 @@ const initialFormData = {
 
 const Login = () => {
     const [formData,setFormData]=useState(initialFormData);
-    const {isAuthUser,setIsAuthUser,user,setUser}=useContext(GlobalContext);
+    const {isAuthUser,setisAuthUser,user,setUser}=useContext(GlobalContext);
     const router=useRouter();
     // console.log(formData);
     function isValidForm() {
@@ -31,27 +32,27 @@ const Login = () => {
         console.log(res)
 
         if(res.success){
-            setIsAuthUser(true);
+            setisAuthUser(true);
             setUser(res?.finalData.user);
             setFormData(initialFormData);
             Cookies.set('token',res?.finalData.token);
-            localStorage,setItem('user',JSON.stringify(res?.finalData.user))
+            localStorage.setItem('user',JSON.stringify(res?.finalData.user))
         }else{
             setIsAuthUser(false);
         }
-        useEffect(()=>{
-            if(isAuthUser){
-                // if(role==="Elderly"){
-                //     router.push('/')
-                    
-                // }else if(role==="Guardian"){
-                //     router.push('/monitoring')
-                // }
-                router.push('/')
-            }
-        },isAuthUser);
+        
     }
-
+    useEffect(()=>{
+        if(isAuthUser){
+            // if(role==="Elderly"){
+            //     router.push('/')
+                
+            // }else if(role==="Guardian"){
+            //     router.push('/monitoring')
+            // }
+            router.push('/dashboard')
+        }
+    },[isAuthUser]);
 
     return (
         <div className="max-h-screen h-screen flex flex-col justify-center items-center">
