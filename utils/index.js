@@ -53,6 +53,10 @@ export const loginFormControls=[
         id: "Elderly",
         label: "Elderly",
         },
+        {
+        id: "CareGivers",
+        label: "Care Givers",
+        },
     ],
     },
 ]

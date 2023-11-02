@@ -10,7 +10,7 @@ function Navbar(props) {
   };
 
   return (
-    <nav  className='fixed top-0 flex items-center justify-between py-4 px-8 w-screen bg-white shadow-lg'>
+    <nav  className='fixed top-0 z-10 flex items-center justify-between py-4 px-8 w-screen bg-white shadow-lg'>
       <div className='flex items-center'>
         <Link href="/"><h1 className='font-semibold text-xl'>Vital-Ease</h1></Link>
       </div>

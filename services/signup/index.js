@@ -5,12 +5,12 @@ export const registerNewUser = async (formData) => {
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(formData)
-        })
+            body: JSON.stringify(formData),
+        });
 
-        const finalData = response.json()
+        const finalData = response.json();
         return finalData;
     } catch (e) {
         console.log('error', e)
     }
-}
+};

@@ -7,9 +7,8 @@ import { NextResponse } from "next/server";
 
 const schema = Joi.object({
     name: Joi.string().required(),
-    email: Joi.string().email.required(),
-    password: Joi.string().min(6).required(),
-    role: Joi.string().required()
+    email: Joi.string().email().required(),
+    password: Joi.string().min(6).max(21).required(),
 });
 
 export const dynamic = 'force-dynamic';
@@ -17,14 +16,15 @@ export const dynamic = 'force-dynamic';
 export async function POST(req) {
 
     await connectToDB();
-    const { name, email, password, role } = await req.json();
+    const { name, email, password} = await req.json();
 
-    const { error } = schema.validate({ name, email, password, role })
+    const { error } = schema.validate({ name, email, password})
 
     if (error) {
+        console.log('error: ',error)
         return NextResponse.json({
             success: false,
-            message: email.details[0]
+            message: error.details[0].message
         })
     }
     try {
@@ -39,7 +39,7 @@ export async function POST(req) {
             const hashPassword = await hash(password, 12);
 
             const newslyCreatedUser = await User.create({
-                name, email, password: hashPassword, role
+                name, email, password: hashPassword
             })
 
             if (newslyCreatedUser) {
@@ -51,7 +51,7 @@ export async function POST(req) {
         }
     }
     catch (error) {
-        console.log('Error is new user registration')
+        console.log('Error while new user registration! Please Try again Later')
         return NextResponse.json({
             success: false,
             message: 'Something Went Wrong! Please Try again Later'

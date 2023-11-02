@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 
 const configOptions={
-    useNewUrlParse:true,
+    useNewUrlParser:true,
     useUnifiedTopology:true
 }
 
@@ -15,4 +15,4 @@ const connectToDB=async()=>{
         console.log(`Get Error from DB connection ${err}`)
     );
 }
-export default connectToDB
+export default connectToDB;
