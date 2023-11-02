@@ -1,7 +1,7 @@
 export default function InputComponent({ label, placeholder, value, onChange, type }) {
     return (
         <div className="relative">
-            <p className="px-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600">{label}</p>
+            <p className="px-2 ml-2 font-semibold text-lg text-gray-600">{label}</p>
             <input
                 placeholder={placeholder}
                 type={type || 'text'}

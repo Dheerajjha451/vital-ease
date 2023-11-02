@@ -6,7 +6,7 @@ export default function SelectComponent({
   }) {
     return (
       <div className="relative">
-        <p className=" pt-0 pr-2 absolute pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 bg-white">
+        <p className=" pt-0 pr-2 absolute pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-semibold text-lg text-gray-600 bg-white">
           {label}
         </p>
         <select
@@ -17,6 +17,7 @@ export default function SelectComponent({
           {options && options.length ? (
             options.map((optionItem) => (
               <option
+                className="text-lg "
                 id={optionItem.id}
                 value={optionItem.id}
                 key={optionItem.id}

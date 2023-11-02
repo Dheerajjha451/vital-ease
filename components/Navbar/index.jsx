@@ -10,12 +10,12 @@ function Navbar(props) {
   };
 
   return (
-    <nav  className='fixed top-0 z-10 flex items-center justify-between py-4 px-8 w-screen bg-white shadow-lg'>
+    <nav  className='fixed px-64 top-0 z-10 flex items-center justify-between py-4 px-8 w-screen bg-LG '>
       <div className='flex items-center'>
         <Link href="/"><h1 className='font-semibold text-xl'>Vital-Ease</h1></Link>
       </div>
 
-      <div className='flex items-center space-x-6'>
+      <div className='grid grid-cols-3 place-items-center'>
         {/* <Link href='/' className='text-gray-800 hover:text-blue-500'>
           Home
         </Link> */}

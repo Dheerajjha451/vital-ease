@@ -7,7 +7,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundColor:{
+        'LG':'#DEF7FF',
+        'DG':'2AB7B5',
+        'DB':'#065AD7'
+      },
+      colors:{
+        'LG':'#DEF7FF',
+        'DB':'#065AD7',
+        'DG':'2AB7B5',
+      },
       backgroundImage: {
+        'pattern': "url('../public/assests/pattern.webp')",
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
