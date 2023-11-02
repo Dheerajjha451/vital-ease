@@ -46,7 +46,6 @@ export async function POST(req) {
         const token = jwt.sign({
             id: checkUser._id,
             email: checkUser?.email,
-            role: checkUser?.role
           },'default_secret_key', { expiresIn: '1d' });          
         const finalData={
             token,
@@ -54,7 +53,7 @@ export async function POST(req) {
                 email:checkUser.email,
                 name:checkUser.name,
                 _id:checkUser._id,
-                role:checkUser.role,
+                rolee:role,
             }
         }
         return NextResponse.json({

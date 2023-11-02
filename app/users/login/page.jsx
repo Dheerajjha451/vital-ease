@@ -14,7 +14,7 @@ const initialFormData = {
     
     email: '',
     password: '',
-    role: 'guardian'
+    role: "Guardian"
 }
 
 const Login = () => {
@@ -29,11 +29,12 @@ const Login = () => {
 
     async function handleLogin(){
         const res=await login(formData);
-        console.log(res)
+        // console.log(res)
 
         if(res.success){
             setisAuthUser(true);
             setUser(res?.finalData.user);
+            // console.log(user)
             setFormData(initialFormData);
             Cookies.set('token',res?.finalData.token);
             localStorage.setItem('user',JSON.stringify(res?.finalData.user))
@@ -44,13 +45,15 @@ const Login = () => {
     }
     useEffect(()=>{
         if(isAuthUser){
-            // if(role==="Elderly"){
-            //     router.push('/')
+            if(user.rolee==="Elderly"){
+                router.push('/dashboard/user')
                 
-            // }else if(role==="Guardian"){
-            //     router.push('/monitoring')
-            // }
-            router.push('/dashboard')
+            }else if(user.rolee==="Guardian"){
+                router.push('/dashboard/Guardian')
+            }else{
+                
+                router.push('/dashboard/CareGiver')
+            }
         }
     },[isAuthUser]);
 
