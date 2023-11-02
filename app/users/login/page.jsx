@@ -1,12 +1,13 @@
 'use client';
 import InputComponent from '@/components/Navbar/FormElements/InputComponent';
 import SelectComponent from '@/components/Navbar/FormElements/SelectedComponent';
+import { GlobalContext } from '@/context';
+import { login } from '@/services/login';
 import { loginFormControls} from '@/utils';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { isValidElement, useContext, useEffect, useState } from 'react';
 
-const isRegistered = false;
 
 const initialFormData = {
     
@@ -16,7 +17,42 @@ const initialFormData = {
 }
 
 const Login = () => {
+    const [formData,setFormData]=useState(initialFormData);
+    const {isAuthUser,setIsAuthUser,user,setUser}=useContext(GlobalContext);
     const router=useRouter();
+    // console.log(formData);
+    function isValidForm() {
+        return formData.email && formData.email.trim() !== ''
+            && formData.password && formData.password.trim() !== '' ? true : false
+    }
+
+    async function handleLogin(){
+        const res=await login(formData);
+        console.log(res)
+
+        if(res.success){
+            setIsAuthUser(true);
+            setUser(res?.finalData.user);
+            setFormData(initialFormData);
+            Cookies.set('token',res?.finalData.token);
+            localStorage,setItem('user',JSON.stringify(res?.finalData.user))
+        }else{
+            setIsAuthUser(false);
+        }
+        useEffect(()=>{
+            if(isAuthUser){
+                // if(role==="Elderly"){
+                //     router.push('/')
+                    
+                // }else if(role==="Guardian"){
+                //     router.push('/monitoring')
+                // }
+                router.push('/')
+            }
+        },isAuthUser);
+    }
+
+
     return (
         <div className="max-h-screen h-screen flex flex-col justify-center items-center">
             <div className="mb-5">
@@ -35,18 +71,33 @@ const Login = () => {
                                         type={controlItem.type}
                                         placeholder={controlItem.placeholder}
                                         label={controlItem.label}
+                                        value={formData[controlItem.id]}
+                                        onChange={(event)=>{
+                                            setFormData({
+                                                ...formData,
+                                                [controlItem.id]:event.target.value
+                                            })
+                                        }}
                                         
                                     />
                                 ) : controlItem.componentType === "select" ? (
                                     <SelectComponent
                                         options={controlItem.options}
                                         label={controlItem.label}
-                                        
+                                        onChange={(event) => {
+                                            setFormData({
+                                              ...formData,
+                                              [controlItem.id]: event.target.value,
+                                            });
+                                          }}
+                                          value={formData[controlItem.id]}
                                     />
                                 ) : null
                             )}
                             <button
-                                className="w-full bg-green-500 text-white p-2 rounded"
+                                className="disable:opacity-50 w-full bg-green-500 text-white p-2 rounded"
+                                disabled={!isValidForm()}
+                                onClick={handleLogin}
                             >
                                 Login
                             </button>
