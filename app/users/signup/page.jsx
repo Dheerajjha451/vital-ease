@@ -27,8 +27,10 @@ const Signup = () => {
     async function handleRegisterOnSubmit(){
 
         const data=await registerNewUser(formData);
+        router.push('/users/signup')
+
         console.log(data)
-    }
+    }relative
     
     
     return (
