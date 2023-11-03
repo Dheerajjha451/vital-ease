@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
-
+import LOGO from "@/public/assests/logo.png"
 function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [scrollingUp, setScrollingUp] = useState(true);
@@ -25,18 +25,13 @@ function Navbar() {
   };
 
   return (
-    <nav className={`fixed top-0 z-10 flex items-center justify-between py-4 px-8 w-screen transition-all duration-300 ${scrollingUp ? 'bg-LG' : 'bg-white shadow-md'}`}>
+    <nav className={`fixed top-0 z-10 flex items-center justify-between py-4 px-8 w-screen transition-all pl-64 duration-300 ${scrollingUp ? 'bg-LG' : 'bg-white shadow-md'}`}>
       <div className='flex items-center'>
-        <Link href="/"><h1 className='font-semibold text-xl'>Vital-Ease</h1></Link>
+        <Link href="/"><img src={LOGO.src} className='w-9/12'/></Link>
       </div>
 
       <div className='grid grid-cols-3 place-items-center'>
-        <Link href='/' className='text-gray-800 hover:text-blue-500'>
-          Home
-        </Link>
-        <Link href='/components/About' className='text-gray-800 hover:text-blue-500'>
-           About
-        </Link>
+
 
 
         <div className='flex items-center space-x-4'>
@@ -46,10 +41,10 @@ function Navbar() {
             </a>
           ) : (
             <div className="flex items-center space-x-4">
-              <Link href='/users/login' className='text-gray-800 hover:text-blue-500'>
+              <Link href='/users/login' className='text-gray-800 bg-DDG px-4 py-2 text-white hover:bg-blue-500'>
                 Login
               </Link>
-              <Link href='/users/signup' className='text-gray-800 hover:text-blue-500'>
+              <Link href='/users/signup' className='text-gray-800 bg-DG px-4 py-2 text-white hover:bg-blue-500'>
                 SignUp
               </Link>
             </div>
