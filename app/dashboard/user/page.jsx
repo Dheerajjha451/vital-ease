@@ -1,3 +1,4 @@
+"use client"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faBell } from '@fortawesome/free-solid-svg-icons';
 import Card from '../../../components/Cards/card';
@@ -6,9 +7,18 @@ import Medication from '../../../components/Cards/Medication';
 import BloodStatus from '../../../components/Cards/Bloodstatus';
 import ToDoCalendar from '../../../components/Cards/Todo';
 import SidebarU from '@/components/DashNav/SidebarU/sidebar';
+import ChatIcon from '@/components/Chaticon';
+import Chatbot from '@/app/users/chatbot/page';
+import { useState } from 'react';
+
 
 const Page = (props) => {
   const { userName } = props;
+    const [isChatOpen, setIsChatOpen] = useState(false);
+  
+    const handleChatToggle = () => {
+      setIsChatOpen(!isChatOpen);
+    };
 
   return (
     <div className="flex bg-white">
@@ -51,6 +61,15 @@ const Page = (props) => {
 
 
       </div>
+      {isChatOpen&&<div className='fixed right-5 bottom-24'>
+      <Chatbot isOpen={isChatOpen} onToggle={handleChatToggle} />
+      </div>
+}
+      <div className='fixed right-5 bottom-5 bg-yellow-500 p-5 rounded-full'>
+      <ChatIcon onToggle={handleChatToggle} />
+
+      </div>
+      
     </div>
   );
 };
