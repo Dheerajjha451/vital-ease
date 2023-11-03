@@ -31,7 +31,7 @@ const DataBox = ({ icon, text, value }) => {
 
 const BloodStatus = () => (
   <div>
-    <div className="mb-4 p-4">
+    <div className="grid grid-cols-4 gap-10 mb-4 p-4">
       <DataBox icon={<FaTachometerAlt />} text="Blood Pressure: 120/80" value={80} />
       <DataBox icon={<FaHeartbeat />} text="Heart Rate: 75 bpm" value={75} />
       <DataBox icon={<FaFlask />} text="Glucose Level: 90 mg/dL" value={90} />

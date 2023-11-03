@@ -11,7 +11,6 @@ import ChatIcon from '@/components/Chaticon';
 import Chatbot from '@/app/users/chatbot/page';
 import { useState } from 'react';
 import YourBodyStatus from '@/components/VitaminData';
-import Profile from "@/components/Profile"
 
 
 const Page = (props) => {
@@ -25,7 +24,6 @@ const Page = (props) => {
   return (
     <div className="overflow-x-hidden flex bg-white">
       <SidebarU/>
-      <Profile/>
       {/* Right side with content */}
       <div className=" h-screen flex-1 p-12 mx-24 w-9/11">
         <p>{userName}</p>

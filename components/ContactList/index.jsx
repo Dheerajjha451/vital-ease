@@ -1,6 +1,8 @@
-import contactList from '@/public/assests/list/patient_list';
+
 import React, { useState, useEffect, useRef } from 'react';
-import SidebarD from "@/components/DashNav/SidebarD"
+import SidebarD from '../DashNav/SidebarD/sidebar';
+import { contactList } from '@/public/assests/list/patient_list';
+
 // import contactList from './list.js';
 
 const ContactList = ({ onContactClick }) => {

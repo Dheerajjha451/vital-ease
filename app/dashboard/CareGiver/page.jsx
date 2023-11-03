@@ -1,8 +1,10 @@
 "use client"
-import {ContactList} from '@/components/ContactList';
 import React, { useState } from 'react';
-import Profile from "@/components/Profile"
+
 import { Diganos, Pres } from '@/components/Cards';
+import ContactList from '@/components/ContactList';
+import Card from '@/components/Cards/card';
+import BloodStatus from '@/components/Cards/Bloodstatus';
 function UsersPage(props) {
     const [selectedContact, setSelectedContact] = useState(null);
 
@@ -14,7 +16,6 @@ function UsersPage(props) {
     return (
         <div className='bg-LG bg-pattern bg-fixed'>
             {/* <DashNav/> */}
-            <Profile/>
             <div className='flex '>
                 <div className=''>
                     <ContactList onContactClick={handleContactClick} />
@@ -30,14 +31,9 @@ function UsersPage(props) {
 
                             <div className='py-10'>
                                 <h1 className='text-DDG text-2xl font-bold'>Latest Diagnosis</h1>
-                                <div className='grid gap-10 py-5 grid-cols-5 place-items-center'>
-                                    {selectedContact.diagnosis.map((diagnosis) => (
-                                        <Diganos
-                                            {...diagnosis}
-                                        />
-                                    ))
+                                <div className='py-5 '>
+                                    <BloodStatus/>
 
-                                    }
                                 </div>
                             </div>
                             <div className='py-10'>
