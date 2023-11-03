@@ -1,4 +1,4 @@
-// 'use client';
+'use client';
 import React from 'react';
 import { FaTachometerAlt, FaHeartbeat, FaFlask, FaVial } from 'react-icons/fa';
 
