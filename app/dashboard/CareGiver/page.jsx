@@ -13,13 +13,13 @@ function UsersPage(props) {
     };
 
     return (
-        <div className=''>
+        <div className='bg-LG bg-pattern bg-fixed'>
             {/* <DashNav/> */}
             <div className='flex '>
                 <div className=''>
                     <ContactList onContactClick={handleContactClick} />
                 </div>
-                <div className='bg-LG bg-pattern bg-fixed ml-80 w-full'>
+                <div className=' ml-80 w-full'>
                     {selectedContact && (
                         <div className='py-12 px-24 divide-y-2 divide-dashed  divide-DDG'>
                             <div className='text-3xl p-4 font-bold'>
