@@ -15,3 +15,24 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+/* Custom scrollbars */
+/* Hide scrollbar by default */
+::-webkit-scrollbar {
+  width: 1rem; /* You can adjust the width */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888; /* Change this to your desired color */
+  border-radius: 25rem;
+}
+
+/* Track on hover */
+::-webkit-scrollbar-track:hover {
+  background: #f1f1f1; /* Change this to your desired color */
+}
+
+/* When the scrollbar is active (clicked) */
+::-webkit-scrollbar-thumb:active {
+  background: #555; /* Change this to your desired color */
+}

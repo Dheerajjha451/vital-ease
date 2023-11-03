@@ -9,13 +9,21 @@ module.exports = {
     extend: {
       backgroundColor:{
         'LG':'#DEF7FF',
-        'DG':'2AB7B5',
+        'DG':'#2AB7B5',
+        'DDG':"#024F4F",
+        'DB':'#065AD7'
+      },
+      divideColor:{
+        'LG':'#DEF7FF',
+        'DG':'#2AB7B5',
+        'DDG':"#024F4F",
         'DB':'#065AD7'
       },
       colors:{
         'LG':'#DEF7FF',
         'DB':'#065AD7',
-        'DG':'2AB7B5',
+        'DG':'#2AB7B5',
+        'DDG':"#024F4F",
       },
       backgroundImage: {
         'pattern': "url('../public/assests/pattern.webp')",

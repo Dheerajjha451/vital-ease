@@ -16,15 +16,15 @@ function Navbar(props) {
       </div>
 
       <div className='grid grid-cols-3 place-items-center'>
-        {/* <Link href='/' className='text-gray-800 hover:text-blue-500'>
+        <Link href='/' className='text-gray-800 hover:text-blue-500'>
           Home
-        </Link> */}
+        </Link>
         <a href='#' className='text-gray-800 hover:text-blue-500'>
           About
         </a>
-        <Link href='/users/chatbot' className='text-gray-800 hover:text-blue-500'>
+        {/* <Link href='/users/chatbot' className='text-gray-800 hover:text-blue-500'>
           Chatbot
-        </Link>
+        </Link> */}
        
         <div className='flex items-center space-x-4'>
           {isLoggedIn ? (
