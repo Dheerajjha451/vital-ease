@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { GlobalContext } from '@/context';
 import { useRouter } from 'next/navigation';
 const SidebarD = () => {
-    const {isAuthUser,setisAuthUser}=useContext(GlobalContext)
+    const {setisAuthUser}=useContext(GlobalContext)
   const currentPath = window.location.pathname; // Get the current route
     const router=useRouter();
   const isDashboardRoute = currentPath.startsWith('/dashboard');

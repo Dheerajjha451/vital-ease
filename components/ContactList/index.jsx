@@ -1,6 +1,6 @@
 import contactList from '@/public/assests/list/patient_list';
 import React, { useState, useEffect, useRef } from 'react';
-import DashNav from "@/components/DashNav"
+import SidebarD from "@/components/DashNav/SidebarD"
 // import contactList from './list.js';
 
 const ContactList = ({ onContactClick }) => {
@@ -31,7 +31,7 @@ const ContactList = ({ onContactClick }) => {
 
   return (
     <div className="fixed h-screen text-white bg-[#002864] w-1/6 overflow-y-hidden flex">
-      <DashNav/>
+      <SidebarD/>
       <div
         className="ml-20 w-11/12 px-10 p-4 overflow-y-auto"
         ref={scrollRef}

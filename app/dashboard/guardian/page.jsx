@@ -1,12 +1,12 @@
 import React from 'react';
-import DashNav from '../../../components/DashNav';
+import SidebarU from '@/components/DashNav/SidebarU/sidebar';
 
 function Page(props) {
     const { userName } = props;
 
     return (
         <div>
-            <DashNav />
+            <SidebarU/>
             <div className="text-right">
                 <p>{userName}</p>
                 <h2>Today</h2>

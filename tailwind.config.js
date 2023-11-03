@@ -11,6 +11,7 @@ module.exports = {
         'LG':'#DEF7FF',
         'DG':'#2AB7B5',
         'DDG':"#024F4F",
+        'teal':"#15CECB",
         'DB':'#065AD7'
       },
       divideColor:{

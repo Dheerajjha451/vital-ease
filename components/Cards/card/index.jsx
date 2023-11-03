@@ -1,11 +1,14 @@
 'use client';
 const Card = ({ title, children, shadowEffect }) => (
-  <div
-    className={`bg-teal-500 p-1 rounded-lg ${shadowEffect ? 'shadow-md' : ''} mb-2`}
+  <div>
+    <h3 className="text-xl text-center py-4 font-semibold mb-1">{title}</h3>
+    <div
+    className={`bg-teal text-left py-12 px-6 rounded-2xl ${shadowEffect ? 'shadow-md' : ''} mb-2`}
   >
-    <h3 className="text-sm font-semibold mb-1">{title}</h3>
     {children}
   </div>
+  </div>
+  
 );
 
 export default Card;
