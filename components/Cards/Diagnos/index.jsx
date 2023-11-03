@@ -1,3 +1,5 @@
+import localImage from '../../../public/assests/pana.png'; 
+
 const ImageCard = ({ imageSrc }) => (
   <div className="card bg-teal-200 p-8 rounded shadow-lg hover:shadow-xl transition duration-300">
     <img src={imageSrc} alt="Diagnosis" className="card-image object-cover w-full h-full rounded" />
@@ -56,7 +58,7 @@ const SleepPatternCard = ({ sleepPattern }) => {
   )  
 };
 
-const DiagnosisItem = ({ imagePath, sleepPattern = { timing: '10:00 PM - 6:00 AM', level: 'good' }, heartbeatValue = 75 }) => (
+const Diagnos= ({ imagePath, sleepPattern = { timing: '10:00 PM - 6:00 AM', level: 'good' }, heartbeatValue = 75 }) => (
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     <ImageCard imageSrc={imagePath} />
     <HeartbeatIconCard heartbeatValue={heartbeatValue} />
@@ -64,4 +66,4 @@ const DiagnosisItem = ({ imagePath, sleepPattern = { timing: '10:00 PM - 6:00 AM
   </div>
 );
 
-export default DiagnosisItem;
+export default Diagnos;
