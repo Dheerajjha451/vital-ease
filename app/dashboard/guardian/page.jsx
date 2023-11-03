@@ -2,6 +2,7 @@ import React from 'react';
 import DiagnosisItem from '../../../components/Cards/Diagnos';
 import YourStatusItem from '../../../components/Cards/Yourstatus';
 import SidebarU from '@/components/DashNav/SidebarU/sidebar';
+import Pana from "@/public/assests/pana.webp"
 
 function Page(props) {
   const { userName } = props;
@@ -12,21 +13,21 @@ function Page(props) {
         <SidebarU/>
       </div>
 
-      <div className="flex-grow p-4 overflow-y-auto ml-14"> 
+      <div className="ml-20 flex-grow p-4 overflow-y-auto ml-14"> 
         <div className="text-right">
           <p className="text-xl font-semibold">{userName}</p>
-          <h2 className="text-2xl font-bold mb-4">Today</h2>
+          
         </div>
 
         <div className="mt-8">
-          <div className="mb-8">
+          <div className="">
             <h2 className="text-2xl font-bold mb-4">Diagnosis History</h2>
-            <DiagnosisItem content="Diagnosis" />
+            <DiagnosisItem content="Diagnosis" imagePath={Pana.src} />
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold ">Your Status</h2>
-            <div className="grid grid-cols-4 gap-6">
+            <h2 className="text-2xl font-bold ">User Status</h2>
+            <div className="">
               <YourStatusItem content="Your" />
             </div>
           </div>

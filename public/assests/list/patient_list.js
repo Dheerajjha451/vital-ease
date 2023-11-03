@@ -1,4 +1,4 @@
-const contactList = [
+export const contactList = [
   {
     id: 1, name: 'Alice Smith',
     age:"72",
@@ -97,5 +97,20 @@ const contactList = [
   { id: 16, name: 'Parker Parker' },
   // Add more contacts as needed
 ];
-
-export default contactList;
+export const todoList = {
+  Monday: [
+    'Task 1',
+    'Task 2',
+    'Task 3',
+    // Add more tasks here
+  ],
+  Tuesday: [
+    'Task A',
+    'Task B',
+    // Add more tasks here
+  ],
+  Wednesday: [
+    // Add tasks for Wednesday
+  ],
+  // Continue for other days of the week
+};

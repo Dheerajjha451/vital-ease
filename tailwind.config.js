@@ -22,6 +22,7 @@ module.exports = {
       },
       colors:{
         'LG':'#DEF7FF',
+        'LLG':"#D3EDEC",
         'DB':'#065AD7',
         'DG':'#2AB7B5',
         'DDG':"#024F4F",

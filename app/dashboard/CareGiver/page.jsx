@@ -1,8 +1,7 @@
 "use client"
-import ContactList from '@/components/ContactList';
+import {ContactList} from '@/components/ContactList';
 import React, { useState } from 'react';
-import FaUserAlt from "@fortawesome/react-fontawesome"
-import DashNav from '../../../components/DashNav';
+import Profile from "@/components/Profile"
 import { Diganos, Pres } from '@/components/Cards';
 function UsersPage(props) {
     const [selectedContact, setSelectedContact] = useState(null);
@@ -15,6 +14,7 @@ function UsersPage(props) {
     return (
         <div className='bg-LG bg-pattern bg-fixed'>
             {/* <DashNav/> */}
+            <Profile/>
             <div className='flex '>
                 <div className=''>
                     <ContactList onContactClick={handleContactClick} />

@@ -3,13 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faBell } from '@fortawesome/free-solid-svg-icons';
 import Card from '../../../components/Cards/card';
 import Medication from '../../../components/Cards/Medication';
-
+import BusStop from "@/public/assests/Bus-Stop-bro.webp"
 import BloodStatus from '../../../components/Cards/Bloodstatus';
 import ToDoCalendar from '../../../components/Cards/Todo';
 import SidebarU from '@/components/DashNav/SidebarU/sidebar';
 import ChatIcon from '@/components/Chaticon';
 import Chatbot from '@/app/users/chatbot/page';
 import { useState } from 'react';
+import YourBodyStatus from '@/components/VitaminData';
+import Profile from "@/components/Profile"
 
 
 const Page = (props) => {
@@ -21,9 +23,9 @@ const Page = (props) => {
     };
 
   return (
-    <div className="flex bg-white">
+    <div className="overflow-x-hidden flex bg-white">
       <SidebarU/>
-
+      <Profile/>
       {/* Right side with content */}
       <div className=" h-screen flex-1 p-12 mx-24 w-9/11">
         <p>{userName}</p>
@@ -48,10 +50,10 @@ const Page = (props) => {
           </Card>
 
           {/* Today's Routine */}
-          <Card title="Today's Routine" hoverEffect shadowEffect>
+          <div title="Today's Routine" hoverEffect shadowEffect>
 
             <ToDoCalendar />
-          </Card>
+          </div>
 
           {/* Health Stats */}
           <Card title="Health Stats" hoverEffect shadowEffect>
@@ -59,7 +61,7 @@ const Page = (props) => {
           </Card>
         </div>
 
-
+          <YourBodyStatus/>
       </div>
       {isChatOpen&&<div className='fixed right-5 bottom-24'>
       <Chatbot isOpen={isChatOpen} onToggle={handleChatToggle} />
